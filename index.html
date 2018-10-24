@@ -28,36 +28,36 @@
 <div class="game-container" id="gameContainer">
 
     <div id="headerRowContainer" class="current-state-row">
-        <div class="game-title" title="The name of the game.">
+        <div class="game-title" title="游戏名称">
             基础
         </div>
 
-        <div id="currentValue" class="main-value-element total-value" title="The current value."></div>
+        <div id="currentValue" class="main-value-element total-value" title="当前值"></div>
 
-        <div id="currentRate" class="main-value-element total-rate" title="The current rate of improvement."></div>
+        <div id="currentRate" class="main-value-element total-rate" title="目前的提升速率。"></div>
 
-        <div id="currentBonus" class="main-value-element total-bonus" title="The total bonus earned from upgrades."></div>
+        <div id="currentBonus" class="main-value-element total-bonus" title="来自升级的累计加成"></div>
 
-        <div id="currentTick" class="main-value-element total-tick" title="Milliseconds per tick"></div>
+        <div id="currentTick" class="main-value-element total-tick" title="每一轮需要的毫秒数量"></div>
 
-        <div id="purchaseCountButton1" class="game-button purchase-per-click-button" title="Purchase 1 item at a time">
+        <div id="purchaseCountButton1" class="game-button purchase-per-click-button" title="一次购买1个">
             X1
         </div>
 
-        <div id="purchaseCountButton10" class="game-button purchase-per-click-button" title="Purchase 10 items at a time">
+        <div id="purchaseCountButton10" class="game-button purchase-per-click-button" title="一次购买10个">
             X10
         </div>
 
-        <div id="purchaseCountButton25" class="game-button purchase-per-click-button" title="Purchase 25 items at a time">
+        <div id="purchaseCountButton25" class="game-button purchase-per-click-button" title="一次购买25个">
             X25
         </div>
 
-        <div id="purchaseCountButton100" class="game-button purchase-per-click-button"  title="Purchase 100 items at a time">
+        <div id="purchaseCountButton100" class="game-button purchase-per-click-button"  title="一次购买100个">
             X100
         </div>
 
-        <div id="purchaseCountButtonNext" class="game-button purchase-per-click-button"  title="Purchase enough to get the next upgrade">
-            NEXT
+        <div id="purchaseCountButtonNext" class="game-button purchase-per-click-button"  title="购买足以进行下一次升级的数量">
+            下一级
         </div>
     </div>
 
@@ -85,14 +85,14 @@
             </div>
             <div class="status-bar-entry">版本: 9</div>
             <div id="percentComplete" class="status-bar-entry" title="解锁全部格子以取得胜利！"></div>
-            <div id="gameVictories" class="status-bar-entry" title="You have won this many times."></div>
+            <div id="gameVictories" class="status-bar-entry" title="你胜利了这么多次。"></div>
             <div id="elapsedTime" class="status-bar-entry"></div>
         </div>
         <div id="saveContainer" class="status-bar-row">
-            <div class="status-bar-entry"><a id="saveButton" href="index.html#" title="Save the game right now.">保存</a></div>
+            <div class="status-bar-entry"><a id="saveButton" href="index.html#" title="立刻保存游戏">保存</a></div>
             <div id="lastSaveTime" class="status-bar-entry">上次保存: 00:00:00</div>
 
-            <div class="status-bar-entry" title="This resets the game but keeps your victories. You will be asked to confirm.">
+            <div class="status-bar-entry" title="这会重置游戏但会保留你的胜利次数。 您将被要求确认。">
                 <a id="resetGameButton" href="index.html#">重置游戏</a>
                 <div id="resetConfirmation" style="display:none">
                     是否确定重置游戏:

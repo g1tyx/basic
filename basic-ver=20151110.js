@@ -1287,7 +1287,7 @@ BuildingView.prototype.updateViewContents = function () {
         }
         if (this.displayedRate != rate || (this.displayedTickRate != Game.configuration.displayTickRate || this.displayedRateFormat != Game.configuration.displayNumberFormat)) {
             if (Game.configuration.displayTickRate) this.rateCell.innerHTML =
-                Formatter.formatNumber(rate, Game.configuration.displayNumberFormat) + "/tick";
+                Formatter.formatNumber(rate, Game.configuration.displayNumberFormat) + "/轮";
             else this.rateCell.innerHTML = Formatter.formatNumber(rate, Game.configuration.displayNumberFormat) + "/秒";
             this.displayedRate = rate;
             this.displayedTickRate = Game.configuration.displayTickRate;
@@ -1505,7 +1505,7 @@ function TickRateToggleView() {
 TickRateToggleView.prototype = new BaseView;
 TickRateToggleView.prototype.initializeView = function () {
     this.tickRateToggleLink = Page.getElement("tickRateToggleButton");
-    this.tickRateToggleLink.innerHTML = "速率: 数值/tick";
+    this.tickRateToggleLink.innerHTML = "速率: 数值/轮";
     this.displayedPerTick = !Game.configuration.displayTickRate;
     this.tickRateToggleLink.onclick = function () {
         Game.configuration.displayTickRate = !Game.configuration.displayTickRate;
@@ -1515,7 +1515,7 @@ TickRateToggleView.prototype.initializeView = function () {
 TickRateToggleView.prototype.updateViewContents = function () {
     if (this.displayedPerTick != Game.configuration.displayTickRate) {
         this.displayedPerTick = Game.configuration.displayTickRate;
-        if (Game.configuration.displayTickRate) this.tickRateToggleLink.innerHTML = "速率: 数值/tick";
+        if (Game.configuration.displayTickRate) this.tickRateToggleLink.innerHTML = "速率: 数值/轮";
         else this.tickRateToggleLink.innerHTML = "速率: 数值/秒"
     }
 };
