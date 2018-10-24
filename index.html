@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BASIC</title>
+    <link rel="stylesheet" type="text/css" href="basic-version=20151024.css">
+    <meta name="description" content="A very basic incremental game." />
+    <meta name="keywords" content="game,gaming,games,idle,incremental" />
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ganal');
+
+        ganal('create', 'UA-41541662-1', 'minmaxia.com');
+        ganal('send', 'pageview');
+    </script>
+</head>
+<body>
+
+<div class="game-container" id="gameContainer">
+
+    <div id="headerRowContainer" class="current-state-row">
+        <div class="game-title" title="The name of the game.">
+            BASIC
+        </div>
+
+        <div id="currentValue" class="main-value-element total-value" title="The current value."></div>
+
+        <div id="currentRate" class="main-value-element total-rate" title="The current rate of improvement."></div>
+
+        <div id="currentBonus" class="main-value-element total-bonus" title="The total bonus earned from upgrades."></div>
+
+        <div id="currentTick" class="main-value-element total-tick" title="Milliseconds per tick"></div>
+
+        <div id="purchaseCountButton1" class="game-button purchase-per-click-button" title="Purchase 1 item at a time">
+            X1
+        </div>
+
+        <div id="purchaseCountButton10" class="game-button purchase-per-click-button" title="Purchase 10 items at a time">
+            X10
+        </div>
+
+        <div id="purchaseCountButton25" class="game-button purchase-per-click-button" title="Purchase 25 items at a time">
+            X25
+        </div>
+
+        <div id="purchaseCountButton100" class="game-button purchase-per-click-button"  title="Purchase 100 items at a time">
+            X100
+        </div>
+
+        <div id="purchaseCountButtonNext" class="game-button purchase-per-click-button"  title="Purchase enough to get the next upgrade">
+            NEXT
+        </div>
+    </div>
+
+    <div class="game-body">
+        <div id="buildingContainer"></div>
+        <div id="columnStatusContainer" class="button-row"></div>
+        <div id="statusBarContainer" class="status-bar-row">
+            <div class="status-bar-entry">
+                <a href="mailto:contact@minmaxia.com" title="Send me an email if you want to tell me something.">contact@minmaxia.com</a>
+            </div>
+            <div class="status-bar-entry">
+                <a href="https://www.reddit.com/r/basic_game" target="_blank" style="float: right;" title="Visit the subreddit for this game.">subreddit</a>
+            </div>
+            <div class="status-bar-entry" title="Toggle between displaying rates as value/tick vs value/second.">
+                <a id="tickRateToggleButton" href="index.html#"></a>
+            </div>
+            <div class="status-bar-entry" title="Cycle through number formatting options.">
+                <a id="formattingToggleButton" href="index.html#"></a>
+            </div>
+            <div class="status-bar-entry" title="Let the game play for you.">
+                <a id="autoPlayToggleButton" href="index.html#"></a>
+            </div>
+            <div class="status-bar-entry" title="Disable the progress slider in the building buttons.">
+                <a id="progressSliderToggleButton" href="index.html#"></a>
+            </div>
+            <div class="status-bar-entry">version: 9</div>
+            <div id="percentComplete" class="status-bar-entry" title="Unlock all the squares to win."></div>
+            <div id="gameVictories" class="status-bar-entry" title="You have won this many times."></div>
+            <div id="elapsedTime" class="status-bar-entry"></div>
+        </div>
+        <div id="saveContainer" class="status-bar-row">
+            <div class="status-bar-entry"><a id="saveButton" href="index.html#" title="Save the game right now.">save</a></div>
+            <div id="lastSaveTime" class="status-bar-entry">saved at: 00:00:00</div>
+
+            <div class="status-bar-entry" title="This resets the game but keeps your victories. You will be asked to confirm.">
+                <a id="resetGameButton" href="index.html#">reset game</a>
+                <div id="resetConfirmation" style="display:none">
+                    confirm:
+                    <a id="resetConfirmButtonYes" href="index.html#" class="reset-confirm">yes</a>
+                    <a id="resetConfirmButtonNo" href="index.html#" class="reset-confirm">no</a>
+                </div>
+            </div>
+
+            <a id="exportSave" href="index.html#" class="status-bar-entry">export save</a>
+            <div id="exportSaveContainer" class="import-export-save-container status-bar-entry">
+                <label for="exportSaveInput" class="import-export-text">copy:</label>
+                <input id="exportSaveInput" size="20" type="text">
+                <a id="exportDoneButton" href="index.html#" class="import-export-text">done</a>
+            </div>
+
+            <a id="importSave" href="index.html#" class="status-bar-entry">import save</a>
+            <div id="importSaveContainer" class="import-export-save-container status-bar-entry">
+                <label for="importSaveInput" class="import-export-text">paste:</label>
+                <input id="importSaveInput" size="20" type="text">
+                <a id="importActivateButton" href="index.html#" class="import-export-text">import</a>
+                <a id="importCancelButton" href="index.html#" class="import-export-text">cancel</a>
+            </div>
+            <div id="importSaveError" class="import-export-save-container status-bar-entry">
+                <span class="import-error-text">error: invalid save.</span>
+                <a id="errorMessageDoneButton" href="index.html#" class="import-export-text">ok</a>
+            </div>
+
+            <div class="status-bar-entry">
+                <a id="deleteGameButton" href="index.html#" title="You will lose all your victories and start over. You will be asked to confirm.">delete save</a>
+                <div id="deleteConfirmation" style="display:none">
+                    confirm:
+                    <a id="deleteConfirmButtonYes" href="index.html#" class="reset-confirm" title="I hate my save, I want it to die.">yes</a>
+                    <a id="deleteConfirmButtonNo" href="index.html#" class="reset-confirm" title="Just kidding. I don't really want to start over.">no</a>
+                </div>
+            </div>
+        </div>
+        <div class="game-victory" id="victoryContainer"></div>
+    </div>
+</div>
+
+<script src="lib/lz-string-1.3.3.js"></script>
+<script src="basic-ver=20151110.js"></script>
+
+<!-- Start up the game when the page loads. -->
+<script type="text/javascript">
+    // Initialize things when the window has finished loading.
+    window.onload = function () {
+        Game.onLoad();
+    };
+    // Save the game when the user leaves the page.
+    window.onbeforeunload = function () {
+        Game.saveManager.saveGame();
+    };
+</script>
+
+</body>
+</html>
