@@ -937,7 +937,7 @@ TotalView.prototype.updateViewContents = function () {
         this.displayedTickRate = Game.configuration.displayTickRate;
         this.displayedRateLongFormat = Game.configuration.displayNumberFormat;
         if (Game.configuration.displayTickRate) this.currentRateElement.innerHTML = Formatter.formatNumber(rate, Game.configuration.displayNumberFormat) +
-            " / tick";
+            " / 轮";
         else this.currentRateElement.innerHTML = Formatter.formatNumber(rate, Game.configuration.displayNumberFormat) + " / 秒"
     }
     if (this.displayedBonus != bonus) {
@@ -1075,7 +1075,7 @@ BuildingUpgradeView.prototype.updateViewContents = function () {
                 if (this.displayedStatus != this.clickableLockedStatus) {
                     this.buttonDiv.className =
                         "clickable-locked-game-button game-upgrade";
-                    this.buttonDiv.title = "Click to force auto play to target this upgrade.";
+                    this.buttonDiv.title = "单击以强制优先自动此升级。";
                     this.displayedStatus = this.clickableLockedStatus;
                     this.clearButtonContents()
                 }
@@ -1105,19 +1105,19 @@ BuildingUpgradeView.prototype.updateViewContents = function () {
                 if (this.displayedStatus != this.overriddenTargetStatus) {
                     this.displayedStatus = this.overriddenTargetStatus;
                     this.buttonDiv.className = "overridden-target-game-button game-upgrade";
-                    this.buttonDiv.title = "Overridden auto play upgrade target."
+                    this.buttonDiv.title = "重设自动升级目标."
                 }
             } else if (Game.model.autoPlay.getBuildingToUpgradeIndex() === this.buildingIndex) {
             if (this.displayedStatus != this.autoPlayTargetStatus) {
                 this.displayedStatus = this.autoPlayTargetStatus;
                 this.buttonDiv.className = "targeted-game-button game-upgrade";
-                this.buttonDiv.title = "Current auto play upgrade target."
+                this.buttonDiv.title = "当前自动升级目标"
             }
         } else {
             if (this.displayedStatus != this.clickableUnavailableStatus) {
                 this.displayedStatus = this.clickableUnavailableStatus;
                 this.buttonDiv.className = "clickable-disabled-game-button game-upgrade";
-                this.buttonDiv.title = "Click to force auto play to target this upgrade."
+                this.buttonDiv.title = "单击以强制优先自动此升级"
             }
         } else if (this.displayedStatus != this.unavailableStatus) {
             this.displayedStatus = this.unavailableStatus;
