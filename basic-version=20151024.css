@@ -1,0 +1,405 @@
+body {
+    font-family: "Arial", Gadget, sans-serif;
+
+    font-size: 11px;
+    font-weight: normal;
+    color: #212121;
+    background-color: #DDEEFF;
+
+    overflow-y: hidden; /* hide page level scroll bar. */
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a, a:hover, a:visited, a:active {
+    color: inherit;
+}
+
+div {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.game-container {
+    width: 1190px;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.game-body {
+    position: absolute;
+    top: 43px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+}
+
+.current-state-row {
+    position: absolute;
+    top: 6px;
+    height: 36px;
+
+    overflow: hidden;
+    padding-bottom: 1px; /* We need this or the bottom row of the buttons get cut off when pressed. */
+    margin-bottom: 1px;
+}
+
+.game-title {
+    padding: 5px 5px 5px 0;
+    height: 24px;
+    font-size: 20px;
+    float: left;
+    width: 55px;
+    line-height: 27px;
+}
+
+.main-value-element {
+    height: 24px;
+    padding: 5px;
+    font-size: 17px;
+    text-align: right;
+    border: 1px solid #DDEEFF; /* border same as background. */
+    float: left;
+    margin-left: 3px;
+    line-height: 24px;
+}
+
+.total-value {
+    width: 366px;
+}
+
+.total-rate {
+    width: 270px;
+}
+
+.total-bonus {
+    width: 92px;
+}
+
+.total-tick {
+    width: 92px;
+}
+
+.button-row {
+    overflow: hidden;
+    margin-top: 1px;
+    padding-bottom: 1px; /* We need this or the bottom row of the buttons gets cut of when pressed. */
+}
+
+.status-bar-row {
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.status-bar-entry {
+    float: left;
+    padding: 5px 20px 5px 0;
+}
+
+/* **************************************************************************************** */
+/* Define the button colors.                                                                */
+/* **************************************************************************************** */
+
+.game-button {
+    border: 1px solid #24B;
+    background-color: #57F;
+    cursor: pointer;
+    color: #FFF;
+}
+
+.game-button:hover {
+    background-color: #24B;
+    cursor: pointer;
+}
+
+.game-button:active {
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+}
+
+.prestige-game-button {
+    border: 1px solid #540;
+    background-color: #D40;
+    cursor: pointer;
+    color: #fff;
+}
+
+.prestige-game-button:hover {
+    background-color: #F40;
+    cursor: pointer;
+}
+
+.prestige-game-button:active {
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+}
+
+.prestige-delay-game-button {
+    border: 1px solid #444;
+    background-color: #EE0;
+    cursor: default;
+    color: #000;
+}
+
+.disabled-game-button {
+    border: 1px solid #000;
+    cursor: default;
+    color: #AAA;
+    background-color: #222;
+    /*opacity: 0.9;*/
+}
+
+.transparent-button {
+    opacity: 0.9;
+}
+
+.clickable-disabled-game-button {
+    border: 1px solid #000;
+    cursor: default;
+    color: #AAA;
+    background-color: #222;
+}
+
+.clickable-disabled-game-button:hover {
+    background-color: #88F;
+    color: #222;
+    cursor: pointer;
+}
+
+.clickable-disabled-game-button:active {
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+}
+
+.targeted-game-button {
+    border: 1px solid #002;
+    cursor: default;
+    color: #FFF;
+    background-color: #22A;
+}
+
+.overridden-target-game-button {
+    border: 1px solid #002;
+    cursor: default;
+    color: #EEE;
+    background-color: #A2A;
+}
+
+.overridden-target-game-button:hover {
+    background-color: #828;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.overridden-target-game-button:active {
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+}
+
+.selected-game-button {
+    border: 1px solid #444;
+    cursor: default;
+    color: white;
+    background-color: #D40;
+}
+
+.locked-game-button {
+    border: 1px solid #444;
+    cursor: default;
+    color: #111;
+    background-color: #888;
+}
+
+.clickable-locked-game-button {
+    border: 1px solid #444;
+    cursor: default;
+    color: #111;
+    background-color: #888;
+}
+
+.clickable-locked-game-button:hover {
+    background-color: #88F;
+    color: #222;
+    cursor: pointer;
+}
+
+.clickable-locked-game-button:active {
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+}
+
+.purchased-game-button {
+    border: 1px solid #444;
+    background-color: #8C4;
+    cursor: default;
+    color: #000;
+}
+
+.filled-column-status {
+    border: 1px solid #444;
+    background-color: #D80;
+    cursor: default;
+    color: #FFF;
+}
+
+/* colors match background. */
+.unfilled-column-status {
+    border: 1px solid #DDEEFF;
+    cursor: default;
+    color: #DDEEFF;
+}
+
+.victory-column-status {
+    border: 1px solid #800;
+    background-color: #F00;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+}
+
+.victory-column-status:hover {
+    background-color: #B00;
+    cursor: pointer;
+}
+
+.victory-column-status:active {
+    position: relative;
+    top: 1px;
+    cursor: pointer;
+}
+
+/* **************************************************************************************** */
+/* Define the size, shape and layout of the different buttons.                              */
+/* **************************************************************************************** */
+
+.game-building-container {
+    position: relative;
+    width: 236px;
+    float: left;
+    height: 40px;
+}
+
+.game-building-slider {
+    position: absolute;
+    height: 100%;
+    background-color: #000;
+    width: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.game-building {
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* There is a div around the building table that is used to place padding around the table. */
+.game-building-padding-div {
+    padding: 4px;
+}
+
+.game-building table {
+    width: 100%;
+}
+
+.game-building td {
+    line-height: 15px;
+}
+
+.game-upgrade {
+    width: 40px;
+    height: 40px;
+    margin-left: 2px;
+    float: left;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 4px;
+}
+
+.purchase-per-click-button {
+    width: 40px;
+    height: 34px;
+    margin-left: 2px;
+    float: left;
+    text-align: center;
+    line-height: 34px;
+    border-radius: 4px;
+}
+
+/* **************************************************************************************** */
+/* Victory UI.                                                                              */
+/* **************************************************************************************** */
+
+.game-victory {
+    width: 900px;
+    margin: 50px auto auto;
+    display: none;
+    text-align: center;
+    z-index: 9999;
+}
+
+.victory-title {
+    font-size: 100px;
+    color: #008;
+    font-weight: bold;
+}
+
+.victory-comments {
+    color: #008;
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.restart-button {
+    margin-top: 30px;
+    width: 450px;
+    padding: 10px;
+    text-align: center;
+    font-size: 23px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* **************************************************************************************** */
+/* Reset button styles                                                                      */
+/* **************************************************************************************** */
+
+.reset-confirm {
+    margin-left: 5px;
+}
+
+/* **************************************************************************************** */
+/* Import/Export                                                                            */
+/* **************************************************************************************** */
+
+.import-export-save-container {
+    display: none;
+    padding-top: 0;
+}
+
+.import-export-text {
+    vertical-align: top;
+    line-height: 24px;
+}
+
+.import-error-text {
+    vertical-align: top;
+    line-height: 24px;
+    color: #800;
+}
